@@ -1,0 +1,189 @@
+lineExtract
+{
+    type            sets;
+    libs            (sampling);
+    writeControl    writeTime;
+    interpolationScheme cellPoint;
+    setFormat       raw;
+    fields          (U p);
+
+    sets
+    (
+        line_X-0.051
+        {
+            type        uniform;
+            axis        y;
+            start       (-0.0508 0.0 0.0);
+            end         (-0.0508 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X-0.025
+        {
+            type        uniform;
+            axis        y;
+            start       (-0.0254 0.0 0.0);
+            end         (-0.0254 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X-0.013
+        {
+            type        uniform;
+            axis        y;
+            start       (-0.0127 0.0 0.0);
+            end         (-0.0127 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.000
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0000 0.0 0.0);
+            end         (0.0000 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.013
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0127 0.0 0.0);
+            end         (0.0127 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.019
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0190 0.0 0.0);
+            end         (0.0190 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.025
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0254 0.0 0.0);
+            end         (0.0254 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.032
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0318 0.0 0.0);
+            end         (0.0318 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.038
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0381 0.0 0.0);
+            end         (0.0381 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.051
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0508 0.0 0.0);
+            end         (0.0508 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.064
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0635 0.0 0.0);
+            end         (0.0635 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.070
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0698 0.0 0.0);
+            end         (0.0698 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.076
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0762 0.0 0.0);
+            end         (0.0762 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.083
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0825 0.0 0.0);
+            end         (0.0825 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.089
+        {
+            type        uniform;
+            axis        y;
+            start       (0.0889 0.0 0.0);
+            end         (0.0889 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.102
+        {
+            type        uniform;
+            axis        y;
+            start       (0.1016 0.0 0.0);
+            end         (0.1016 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.127
+        {
+            type        uniform;
+            axis        y;
+            start       (0.1270 0.0 0.0);
+            end         (0.1270 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.152
+        {
+            type        uniform;
+            axis        y;
+            start       (0.1524 0.0 0.0);
+            end         (0.1524 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.178
+        {
+            type        uniform;
+            axis        y;
+            start       (0.1778 0.0 0.0);
+            end         (0.1778 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.203
+        {
+            type        uniform;
+            axis        y;
+            start       (0.2032 0.0 0.0);
+            end         (0.2032 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.254
+        {
+            type        uniform;
+            axis        y;
+            start       (0.2540 0.0 0.0);
+            end         (0.2540 0.1137 0.0);
+            nPoints     200;
+        }
+        line_X0.406
+        {
+            type        uniform;
+            axis        y;
+            start       (0.4064 0.0 0.0);
+            end         (0.4064 0.1137 0.0);
+            nPoints     200;
+        }
+    );
+}

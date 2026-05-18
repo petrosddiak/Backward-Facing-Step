@@ -1,0 +1,7 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "step_duct_0.vtm", "time" : 0 },
+    { "name" : "step_duct_1500.vtm", "time" : 1500 }
+  ]
+}

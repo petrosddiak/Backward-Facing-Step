@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (1e-8 0 0);
+
+boundaryField
+{
+
+inlet
+{
+    type            codedFixedValue;
+    value           uniform (0 0 0);
+
+    name            powerLawProfile;
+
+    code
+    #{
+        const scalar Uinf = 44.2;     // reference velocity
+        const scalar n = 7.0;         // 1/7th power law
+        const scalar delta = 0.02;    // <-- THIS is what you'll tune
+
+        const vectorField& Cf = patch().Cf();
+        vectorField& field = *this;
+
+        // --- detect wall position automatically
+        scalar yWall = GREAT;
+        forAll(Cf, i)
+        {
+            yWall = min(yWall, Cf[i].y());
+        }
+
+        forAll(Cf, i)
+        {
+            scalar y = Cf[i].y();
+            scalar yLocal = y - yWall;
+
+            if (yLocal <= 0)
+            {
+                field[i] = vector(0,0,0);
+            }
+            else if (yLocal >= delta)
+            {
+                field[i] = vector(Uinf, 0, 0);
+            }
+            else
+            {
+                scalar U = Uinf * pow(yLocal/delta, 1.0/n);
+                field[i] = vector(U, 0, 0);
+            }
+        }
+    #};
+}
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    "(upperWall|lowerWall|verticalWall|lowerWallStartup|upperWallStartup)"
+    {
+        type            noSlip;
+    }
+
+    "(front|back)"
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //
