@@ -68,6 +68,6 @@ kill $SOLVER_PID 2>/dev/null
 
 echo "All processes stopped successfully."
 
-postProcess -func wallShearStress
+$SOLVER -postProcess -latestTime -func wallShearStress
 
 #paraFoam

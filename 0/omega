@@ -16,7 +16,7 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 181728;
+internalField   uniform 7766.55388888889; // from k/(nu*0.009)
 
 boundaryField
 {

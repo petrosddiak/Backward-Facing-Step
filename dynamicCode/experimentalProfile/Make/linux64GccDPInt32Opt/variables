@@ -1,0 +1,1 @@
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libexperimentalProfile_c3f14a7e1e5593e78499646cf003a72e74663f5a

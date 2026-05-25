@@ -26,42 +26,63 @@ inlet
     type            codedFixedValue;
     value           uniform (0 0 0);
 
-    name            powerLawProfile;
+    name            experimentalProfile;
 
     code
     #{
-        const scalar Uinf = 44.2;     // reference velocity
-        const scalar n = 7.0;         // 1/7th power law
-        const scalar delta = 0.02;    // <-- THIS is what you'll tune
+        const scalar Uref = 44.2;
+        const scalar H = 0.0127;
+
+        // Driver and Seegmiller alpha=0 profile at X/H=-4.
+        // The table uses absolute Y/H, with the upstream lower wall at Y/H=1.
+        const label nData = 19;
+        const scalar yByHData[nData] =
+        {
+            1.00,
+            1.10, 1.15, 1.20, 1.30, 1.40, 1.50, 1.70, 2.00,
+            2.40, 2.80, 3.20, 3.60, 4.00, 5.00, 6.00, 7.50, 8.20,
+            9.00
+        };
+        const scalar uByUrefData[nData] =
+        {
+            0.000,
+            0.657, 0.696, 0.719, 0.760, 0.790, 0.818, 0.870, 0.926,
+            0.982, 1.003, 1.003, 1.000, 1.001, 1.001, 1.000, 1.001, 0.943,
+            0.000
+        };
 
         const vectorField& Cf = patch().Cf();
         vectorField& field = *this;
 
-        // --- detect wall position automatically
-        scalar yWall = GREAT;
         forAll(Cf, i)
         {
-            yWall = min(yWall, Cf[i].y());
-        }
+            const scalar yByH = Cf[i].y()/H;
+            scalar uByUref = 0;
 
-        forAll(Cf, i)
-        {
-            scalar y = Cf[i].y();
-            scalar yLocal = y - yWall;
-
-            if (yLocal <= 0)
+            if (yByH <= yByHData[0])
             {
-                field[i] = vector(0,0,0);
+                uByUref = uByUrefData[0];
             }
-            else if (yLocal >= delta)
+            else if (yByH >= yByHData[nData - 1])
             {
-                field[i] = vector(Uinf, 0, 0);
+                uByUref = uByUrefData[nData - 1];
             }
             else
             {
-                scalar U = Uinf * pow(yLocal/delta, 1.0/n);
-                field[i] = vector(U, 0, 0);
+                for (label j = 1; j < nData; ++j)
+                {
+                    if (yByH <= yByHData[j])
+                    {
+                        const scalar t =
+                            (yByH - yByHData[j - 1])/(yByHData[j] - yByHData[j - 1]);
+                        uByUref =
+                            uByUrefData[j - 1] + t*(uByUrefData[j] - uByUrefData[j - 1]);
+                        break;
+                    }
+                }
             }
+
+            field[i] = vector(Uref*uByUref, 0, 0);
         }
     #};
 }

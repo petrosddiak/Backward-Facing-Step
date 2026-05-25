@@ -21,63 +21,63 @@ FoamFile
     inlet
     {
         type            patch;
-        nFaces          80;
-        startFace       35710;
+        nFaces          140;
+        startFace       111480;
     }
     outlet
     {
         type            patch;
-        nFaces          140;
-        startFace       35790;
+        nFaces          280;
+        startFace       111620;
     }
     lowerWallStartup
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          50;
-        startFace       35930;
+        nFaces          80;
+        startFace       111900;
     }
     upperWallStartup
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          50;
-        startFace       35980;
+        nFaces          80;
+        startFace       111980;
     }
     upperWall
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          100;
-        startFace       36030;
+        nFaces          160;
+        startFace       112060;
     }
     verticalWall
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          60;
-        startFace       36130;
+        nFaces          140;
+        startFace       112220;
     }
     lowerWall
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          100;
-        startFace       36190;
+        nFaces          160;
+        startFace       112360;
     }
     front
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          18000;
-        startFace       36290;
+        nFaces          56000;
+        startFace       112520;
     }
     back
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          18000;
-        startFace       54290;
+        nFaces          56000;
+        startFace       168520;
     }
 )
 

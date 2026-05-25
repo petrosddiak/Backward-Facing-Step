@@ -1,0 +1,18 @@
+# OpenFOAM time directories
+[0-9]*/
+
+# Logs
+log.*
+
+# Post-processing files
+*.vtk
+*.foam
+*.csv
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Inkscape files
+/inkscape-*.svg
