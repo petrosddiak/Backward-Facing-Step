@@ -21,15 +21,21 @@ Stated reattachment length is at 6.26 +/- 0.1 x/h
 
 ### Mesh manipulations
 
-To change domain length, step height etc. modify vertices in the *blockMeshDict* file.
-To calculate desired edge grading based on length, number of cells and first cell height, run the *calc_grading.py* script.
-To alter number of cells on edges and input the calculated edge gradings, use the *mesh_config.txt* file.
-Use the *run_mesh.sh* to update the mesh.
+To change domain length, step height etc. modify vertices in the ***blockMeshDict*** file.
+To calculate desired edge grading based on length, number of cells and first cell height, run the ***calc_grading.py*** script.
+To alter number of cells on edges and input the calculated edge gradings, use the ***mesh_config.txt*** file.
+Use the ***run_mesh.sh*** to update the mesh.
 
-### Solver runs
+### Solver setup
 
-3 different mesh sizings were tested, with a refinement factor of ~2 (12k, 28k and 56k elements). Measured quantity wasNo significant changes were noticed after
-To run the case, use the *execution.sh* script. To change mesh seetings
+3 different mesh sizings were tested, with a refinement factor of ~2 (12k, 28k and 56k elements). Measured quantity was the RMS L2 norm of velocity profile differences at different x/H locations. No significant changes were noticed after the medium mesh refinement, so it was kept as the benchmark of the study. Inlet boundary condition is the velocity profile as obtained from the experimental data. Outlet is atmospheric pressure and walls are set as no-slip.
+
+The case runs using the ***execution.sh*** script.
+
+### Results discussion
+
+<img src="images/streamlines.png" alt="Velocity colored streamlines through the duct" width="50%">
+
 
 For further information please visit:
 
