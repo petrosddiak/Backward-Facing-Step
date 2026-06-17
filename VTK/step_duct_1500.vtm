@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<!-- time='1500' -->
+<VTKFile type='vtkMultiBlockDataSet' version='1.0' byte_order='LittleEndian' header_type='UInt64'>
+  <vtkMultiBlockDataSet>
+    <DataSet name='internal' file='step_duct_1500/internal.vtu' />
+    <Block name='boundary'>
+      <DataSet name='inlet' file='step_duct_1500/boundary/inlet.vtp' />
+      <DataSet name='outlet' file='step_duct_1500/boundary/outlet.vtp' />
+      <DataSet name='lowerWallStartup' file='step_duct_1500/boundary/lowerWallStartup.vtp' />
+      <DataSet name='upperWallStartup' file='step_duct_1500/boundary/upperWallStartup.vtp' />
+      <DataSet name='upperWall' file='step_duct_1500/boundary/upperWall.vtp' />
+      <DataSet name='verticalWall' file='step_duct_1500/boundary/verticalWall.vtp' />
+      <DataSet name='lowerWall' file='step_duct_1500/boundary/lowerWall.vtp' />
+    </Block>
+  </vtkMultiBlockDataSet>
+  <FieldData>
+    <DataArray type='Float32' Name='TimeValue' NumberOfTuples='1' format='ascii'>
+1500
+    </DataArray>
+  </FieldData>
+</VTKFile>
