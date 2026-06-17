@@ -1,6 +1,6 @@
 # OpenFOAM time directories
 [0-9]*/
-VTK
+VTK/
 
 # Logs
 log.*
