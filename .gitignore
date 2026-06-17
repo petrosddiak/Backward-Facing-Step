@@ -1,5 +1,6 @@
 # OpenFOAM time directories
 [0-9]*/
+VTK
 
 # Logs
 log.*
@@ -16,3 +17,6 @@ log.*
 
 # Inkscape files
 inkscape/
+
+# Paraview files
+*.pvsm
