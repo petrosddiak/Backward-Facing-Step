@@ -35,20 +35,18 @@ inlet
 
         // Driver and Seegmiller alpha=0 profile at X/H=-4.
         // The table uses absolute Y/H, with the upstream lower wall at Y/H=1.
-        const label nData = 19;
+        const label nData = 18;
         const scalar yByHData[nData] =
         {
             1.00,
             1.10, 1.15, 1.20, 1.30, 1.40, 1.50, 1.70, 2.00,
-            2.40, 2.80, 3.20, 3.60, 4.00, 5.00, 6.00, 7.50, 8.20,
-            9.00
+            2.40, 2.80, 3.20, 3.60, 4.00, 5.00, 6.00, 7.50, 8.20
         };
         const scalar uByUrefData[nData] =
         {
             0.000,
             0.657, 0.696, 0.719, 0.760, 0.790, 0.818, 0.870, 0.926,
-            0.982, 1.003, 1.003, 1.000, 1.001, 1.001, 1.000, 1.001, 0.943,
-            0.000
+            0.982, 1.003, 1.003, 1.000, 1.001, 1.001, 1.000, 1.001, 0.943
         };
 
         const vectorField& Cf = patch().Cf();

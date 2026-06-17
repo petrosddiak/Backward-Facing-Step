@@ -34,7 +34,30 @@ The case runs using the ***execution.sh*** script.
 
 ### Results discussion
 
-<img src="images/streamlines.png" alt="Velocity colored streamlines through the duct" width="50%">
+As expected the flow separates after the step due to adverse pressure gradients, which causes a recirculation bubble:
+<img src="images/streamlines.png" alt="Velocity colored streamlines through the duct" width="70%">
+
+Velocity profiles are captured relatively accurately away from the lower wall and close to the upper wall:
+<img src="images/velocity_profiles.png" alt="Velocity profiles (experimental data vs OpenFOAM)" width="70%">
+
+Things immediately evident:
+1. Reattachment roughly in the right location
+2. Recirculation zone shape reasonably well
+3. Near-wall reverse flow reasonably well
+
+
+However looking closer at the near-wall velocity profiles for the lower part of the duct, there is not a very good agreement between the 2 datasets:
+
+<img src="images/velocity_profiles_close-up.png" alt="Velocity profiles (close-up at lower wall)" width="70%">
+
+
+This is a proof that RANS models overpredict turbulent mixing, diffuse the shear layer too quickly and recover to equilibrium too fast. This incorrect velocity profile capturing leads in turn in discrepancies at the developed shear, thus the reattachment location:
+
+<img src="images/Cf.png" alt="Skin friction coefficient (experimental data vs OpenFOAM)" width="70%">
+
+
+Worth keeping in mind that the ERCOFTAC experiment is an inherently 3D case with side wall effects, large scale coherent structures and most importantly turbulence anisotropy. On the other hand, OpenFOAM setup is a 2.5D case which tends to lead towards a developed flow faster.
+
 
 
 For further information please visit:
